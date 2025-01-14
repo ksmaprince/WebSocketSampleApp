@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -56,4 +58,32 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Dagger Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    //Scarlet
+    implementation(libs.scarlet.core)
+    implementation(libs.scarlet)
+    implementation(libs.lifecycle.android)
+    implementation(libs.websocket.okhttp)
+    implementation(libs.message.adapter.moshi)
+    implementation(libs.stream.adapter.coroutines)
+
+    //OkHttp3
+    implementation(libs.logging.interceptor)
+
+    //Moshi
+    implementation(libs.moshi.kotlin)
+    ksp(libs.moshi.kotlin.codegen)
+
+    //System Controller
+    implementation (libs.accompanist.systemuicontroller)
 }
